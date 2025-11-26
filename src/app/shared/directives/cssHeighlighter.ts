@@ -1,4 +1,5 @@
-import { Directive, ElementRef, OnInit, Renderer2 } from "@angular/core";
+import { style } from "@angular/animations";
+import { Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Renderer2 } from "@angular/core";
 
 
 @Directive({
@@ -93,5 +94,197 @@ export class CssHeighlighter4 implements OnInit{
       
 }
 
+@Directive({
+    selector : '[mouseOverbgchange]'
+})
+export class CssHeighlighter5 implements OnInit{
+    @HostBinding("style.backgroundColor")
+     bgColor : string = 'pink';
+    @Input()  defaultColor !: string 
+    // = 'hotpink'
+    @Input()  hoverClr !: string
+    //  = 'violet'
+    constructor(private _eleReff5: ElementRef,
+                private _rendere5: Renderer2 
+    ){
+              
+    }
+
+    ngOnInit(): void {
+        this.bgColor = this.defaultColor
+        this._rendere5.addClass(this._eleReff5.nativeElement ,"alert")
+        this._rendere5.addClass(this._eleReff5.nativeElement ,"alert-primary")
+    }
+
+    @HostListener('mouseover')
+
+    onMouseOver(){
+    //    this._rendere5.setStyle(this._eleReff5.nativeElement , "background-color" ,"blue")
+    this.bgColor = this.defaultColor
+        this._rendere5.setStyle(this._eleReff5.nativeElement,"border-radius","35px")
+
+    }
+    
+    @HostListener('mouseout')
+
+    onMouseOut(){
+    //    this._rendere5.setStyle(this._eleReff5.nativeElement , "background-color" ,"transparent")
+    this.bgColor = this.hoverClr
+        this._rendere5.setStyle(this._eleReff5.nativeElement,"border-radius","5px")
+
+    }
+      
+}
+
+@Directive({
+    selector:'[mouseovereffect]'
+})
+
+export class CssHeighlighter6 implements OnInit{
+@HostBinding('style.backgroundColor')
+
+    bgColor : string = 'red'
+    defColor : string = 'green'
+    hovColor : string = 'hotpink'
+    constructor(
+        private _eleRef : ElementRef,
+        private _renderer: Renderer2
+
+    ){
+
+    }
+    ngOnInit(): void {
+         this._renderer.addClass(this._eleRef.nativeElement,"alert")
+        this._renderer.addClass(this._eleRef.nativeElement,"alert-info")
+        this.bgColor = this.defColor
+    }
+    @HostListener('mouseover')
+    
+    onMouseOver(){
+       this.bgColor = this.defColor;
+        this._renderer.setStyle(this._eleRef.nativeElement,"border-radius","35px")
 
 
+    }
+    @HostListener('mouseout')
+    
+    onMouseOut(){
+       this.bgColor = this.hovColor;
+        this._renderer.setStyle(this._eleRef.nativeElement,"border-radius","5px")
+       
+    }
+}
+@Directive({
+    selector:'[mouseovereffect1]'
+})
+
+export class CssHeighlighter7 implements OnInit{
+@HostBinding('style.backgroundColor')
+
+    bgColor : string = 'orange'
+   @Input() defColor : string = 'red'
+   @Input() hovColor : string = 'gray'
+    constructor(
+        private _eleRef : ElementRef,
+        private _renderer : Renderer2
+    ){
+
+    }
+    ngOnInit(): void {
+        this._renderer.addClass(this._eleRef.nativeElement,"alert")
+        this._renderer.addClass(this._eleRef.nativeElement,"alert-info")
+        this.bgColor = this.defColor
+
+    }
+    @HostListener('mouseover')
+    
+    onMouseOver(){
+       this.bgColor = this.defColor;
+        this._renderer.setStyle(this._eleRef.nativeElement,"border-radius","35px")
+
+
+    }
+    @HostListener('mouseout')
+    
+    onMouseOut(){
+       this.bgColor = this.hovColor;
+        this._renderer.setStyle(this._eleRef.nativeElement,"border-radius","5px")
+
+
+    }
+}
+@Directive({
+    selector:'[mouseovereffect2]'
+})
+
+export class CssHeighlighter8 implements OnInit{
+@HostBinding('style.backgroundColor')
+
+   bgColor : string = 'orange'
+   @Input() defColor : string = 'red'
+   @Input() hovColor : string = 'gray'
+    constructor(
+        private _eleRef : ElementRef,
+        private _renderer : Renderer2
+    ){
+
+    }
+    ngOnInit(): void {
+        this._renderer.setStyle(this._eleRef.nativeElement,"padding","35px")
+        this._renderer.addClass(this._eleRef.nativeElement,"alert")
+        this._renderer.addClass(this._eleRef.nativeElement,"alert-warning")
+        this.bgColor = this.defColor
+    }
+    @HostListener('mouseover')
+    
+    onMouseOver(){
+       this.bgColor = this.defColor;
+        this._renderer.setStyle(this._eleRef.nativeElement,"border-radius","35px")
+    
+    }
+    @HostListener('mouseout')
+    
+    onMouseOut(){
+       this.bgColor = this.hovColor;
+        this._renderer.setStyle(this._eleRef.nativeElement,"border-radius","5px")
+      
+    }
+}
+@Directive({
+    selector:'[mouseovereffect3]'
+})
+
+export class CssHeighlighter9 implements OnInit{
+@HostBinding('style.backgroundColor')
+
+   bgColor : string = 'orange'
+   @Input() defColor : string = 'red'
+   @Input() hovColor : string = 'gray'
+    constructor(
+        private _eleRef : ElementRef,
+        private _renderer : Renderer2
+    ){
+
+    }
+    ngOnInit(): void {
+        this._renderer.setStyle(this._eleRef.nativeElement,"padding","35px")
+        this._renderer.setStyle(this._eleRef.nativeElement,"color","white")
+        this._renderer.addClass(this._eleRef.nativeElement,"alert")
+        this._renderer.addClass(this._eleRef.nativeElement,"alert-warning")
+        this.bgColor = this.defColor
+    }
+    @HostListener('mouseover')
+    
+    onMouseOver(){
+       this.bgColor = this.defColor;
+        this._renderer.setStyle(this._eleRef.nativeElement,"border-radius","35px")
+    
+    }
+    @HostListener('mouseout')
+    
+    onMouseOut(){
+       this.bgColor = this.hovColor;
+        this._renderer.setStyle(this._eleRef.nativeElement,"border-radius","5px")
+      
+    }
+}
