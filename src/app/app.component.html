@@ -61,6 +61,17 @@
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur quo iure rem ab rerum culpa consequuntur corporis fugiat sunt beatae!
 
       </p>
+     <div class="form-group">
+      <label for="prdSearch">Search Product</label>
+      <input 
+      appToLowercase type="text" class="form-control">
+     </div>
+     <p class="alert alert-info"
+     (inputValEmmiter)="getEmitedVal($event)"
+     appToLowercase>
+         {{getV}}
+     </p>
+
     </div>
   </div>
 </div>

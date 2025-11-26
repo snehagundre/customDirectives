@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'customDirectives';
+  getV !: string ;
+  getEmitedVal(ab : string){
+    this.getV = ab
+  }
 }
